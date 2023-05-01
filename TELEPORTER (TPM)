@@ -1,0 +1,35 @@
+// This file was decompiled using SASCM.ini published by GTAG (http://gtag.gtagaming.com/opcode-database) on 14.6.2013
+{$CLEO}
+{$USE bitwise}
+
+0000: NOP 
+0001: wait 2000 ms 
+0B34: samp register_client_command "tpm" to_label @Noname_141 
+
+:Noname_19
+0001: wait 0 ms 
+00D6: if 
+0039:   0@ == 1 
+004D: jump_if_false @Noname_134 
+0001: wait 0 ms 
+0AB6: store_target_marker_coords_to 10@ 11@ 12@ // IF and SET 
+02CE: 13@ = ground_z_at 10@ 11@ 999.0 
+00A1: put_actor $PLAYER_ACTOR at 10@ 11@ 13@
+0006: 0@ = 2
+if 0@ == 2
+jump @jump
+ 
+:jump
+0001: wait 0 ms 
+0AB6: store_target_marker_coords_to 10@ 11@ 12@ // IF and SET 
+02CE: 13@ = ground_z_at 10@ 11@ 999.0 
+00A1: put_actor $PLAYER_ACTOR at 10@ 11@ 13@
+0@ = 0
+jf @Noname_19
+
+:Noname_134
+0002: jump @Noname_19 
+
+:Noname_141
+0B12: 0@ = 0@ XOR 1 
+0B43: samp cmd_ret 
